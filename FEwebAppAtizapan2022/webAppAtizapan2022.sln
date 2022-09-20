@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "FEwebAppAtizapan2022", "FEwebAppAtizapan2022\FEwebAppAtizapan2022.esproj", "{ECBC7A5E-ECCB-4AE6-8DE0-5A85590DC9CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BEwebAppAtizapan2022", "BEwebAppAtizapan2022\BEwebAppAtizapan2022.csproj", "{54D789F6-3BEB-4B9D-B67B-BAF7680E7AA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BEwebAppAtizapan2022", "BEwebAppAtizapan2022\BEwebAppAtizapan2022.csproj", "{54D789F6-3BEB-4B9D-B67B-BAF7680E7AA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
