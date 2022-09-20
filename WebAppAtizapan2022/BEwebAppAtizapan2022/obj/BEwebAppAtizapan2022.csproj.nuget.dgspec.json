@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sergiogonzalez\\source\\repos\\SergioGonzalez24\\Proteccion-Civil-Atizapan-Desarrollo-Web\\FEwebAppAtizapan2022\\BEwebAppAtizapan2022\\BEwebAppAtizapan2022.csproj": {}
+    "C:\\Users\\sergiogonzalez\\source\\repos\\SergioGonzalez24\\Proteccion-Civil-Atizapan-Desarrollo-Web\\WebAppAtizapan2022\\BEwebAppAtizapan2022\\BEwebAppAtizapan2022.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sergiogonzalez\\source\\repos\\SergioGonzalez24\\Proteccion-Civil-Atizapan-Desarrollo-Web\\FEwebAppAtizapan2022\\BEwebAppAtizapan2022\\BEwebAppAtizapan2022.csproj": {
+    "C:\\Users\\sergiogonzalez\\source\\repos\\SergioGonzalez24\\Proteccion-Civil-Atizapan-Desarrollo-Web\\WebAppAtizapan2022\\BEwebAppAtizapan2022\\BEwebAppAtizapan2022.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sergiogonzalez\\source\\repos\\SergioGonzalez24\\Proteccion-Civil-Atizapan-Desarrollo-Web\\FEwebAppAtizapan2022\\BEwebAppAtizapan2022\\BEwebAppAtizapan2022.csproj",
+        "projectUniqueName": "C:\\Users\\sergiogonzalez\\source\\repos\\SergioGonzalez24\\Proteccion-Civil-Atizapan-Desarrollo-Web\\WebAppAtizapan2022\\BEwebAppAtizapan2022\\BEwebAppAtizapan2022.csproj",
         "projectName": "BEwebAppAtizapan2022",
-        "projectPath": "C:\\Users\\sergiogonzalez\\source\\repos\\SergioGonzalez24\\Proteccion-Civil-Atizapan-Desarrollo-Web\\FEwebAppAtizapan2022\\BEwebAppAtizapan2022\\BEwebAppAtizapan2022.csproj",
+        "projectPath": "C:\\Users\\sergiogonzalez\\source\\repos\\SergioGonzalez24\\Proteccion-Civil-Atizapan-Desarrollo-Web\\WebAppAtizapan2022\\BEwebAppAtizapan2022\\BEwebAppAtizapan2022.csproj",
         "packagesPath": "C:\\Users\\sergiogonzalez\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sergiogonzalez\\source\\repos\\SergioGonzalez24\\Proteccion-Civil-Atizapan-Desarrollo-Web\\FEwebAppAtizapan2022\\BEwebAppAtizapan2022\\obj\\",
+        "outputPath": "C:\\Users\\sergiogonzalez\\source\\repos\\SergioGonzalez24\\Proteccion-Civil-Atizapan-Desarrollo-Web\\WebAppAtizapan2022\\BEwebAppAtizapan2022\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sergiogonzalez\\AppData\\Roaming\\NuGet\\NuGet.Config",
