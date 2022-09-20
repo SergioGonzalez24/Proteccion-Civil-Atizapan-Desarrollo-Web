@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "XeP/IKzjxvW7UuCp8wjZyLCZQih8tAK6Hd07s702bZJXaG1mljigG5oqeFis2cpUeS5gHeQlYrwcqEzq13DzQA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\sergiogonzalez\\source\\repos\\SergioGonzalez24\\Proteccion-Civil-Atizapan-Desarrollo-Web\\FEwebAppAtizapan2022\\BEwebAppAtizapan2022\\BEwebAppAtizapan2022.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sergiogonzalez\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\sergiogonzalez\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\sergiogonzalez\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\sergiogonzalez\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\sergiogonzalez\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\sergiogonzalez\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
