@@ -1,2 +1,2 @@
-C:\Users\sergiogonzalez\source\repos\SergioGonzalez24\Proteccion-Civil-Atizapan-Desarrollo-Web\WebAppAtizapan2022\FEwebAppAtizapan2022\obj\Debug\FEwebAppAtizapan2022.esproj.SuggestedBindingRedirects.cache
-C:\Users\sergiogonzalez\source\repos\SergioGonzalez24\Proteccion-Civil-Atizapan-Desarrollo-Web\WebAppAtizapan2022\FEwebAppAtizapan2022\obj\Debug\FEwebAppAtizapan2022.esproj.CoreCompileInputs.cache
+C:/Users/sergiogonzalez/source/repos/SergioGonzalez24/Proteccion-Civil-Atizapan-Desarrollo-Web/WebAppAtizapan2022/FEwebAppAtizapan2022/obj/Debug/FEwebAppAtizapan2022.esproj.SuggestedBindingRedirects.cache
+C:/Users/sergiogonzalez/source/repos/SergioGonzalez24/Proteccion-Civil-Atizapan-Desarrollo-Web/WebAppAtizapan2022/FEwebAppAtizapan2022/obj/Debug/FEwebAppAtizapan2022.esproj.CoreCompileInputs.cache
