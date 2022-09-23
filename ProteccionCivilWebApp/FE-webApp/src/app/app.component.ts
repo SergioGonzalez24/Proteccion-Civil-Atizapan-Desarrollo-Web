@@ -37,12 +37,18 @@ export class AppComponent {
 
   public dato: string = "";
 
+  public forecasts?: WeatherForecast[];
+
   headers = new HttpHeaders({
     		'x-rapidapi-host': 'random-facts2.p.rapidapi.com',
     		'x-rapidapi-key': '5ae35c7978msh8ae5b33b67848eap1dd4d6jsncee7be56e0ce'
     	});
 
-	constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    http.get<WeatherForecast[]>('/weatherforecast').subscribe(result => {
+      this.forecasts = result;
+    }, error => console.error(error));
+  }
 
   getData() {
     this.http.get('https://random-facts2.p.rapidapi.com/getfact',
@@ -52,12 +58,12 @@ export class AppComponent {
     this.dato = JSON.stringify(res);
   });
   }
+}
 
-
-
-  
-  
-
-  
+interface WeatherForecast {
+  date: string;
+  temperatureC: number;
+  temperatureF: number;
+  summary: string;
 }
 

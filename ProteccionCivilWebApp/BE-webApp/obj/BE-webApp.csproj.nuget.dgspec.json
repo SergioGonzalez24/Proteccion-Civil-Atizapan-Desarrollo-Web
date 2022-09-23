@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/sergiogonzalez/Documents/GitHub/Proteccion-Civil-Atizapan-Desarrollo-Web/ProteccionCivilWebApp/BE-webApp/BE-webApp.csproj": {}
+    "C:\\Users\\sergiogonzalez\\source\\repos\\SergioGonzalez24\\Proteccion-Civil-Atizapan-Desarrollo-Web\\ProteccionCivilWebApp\\BE-webApp\\BE-webApp.csproj": {}
   },
   "projects": {
-    "/Users/sergiogonzalez/Documents/GitHub/Proteccion-Civil-Atizapan-Desarrollo-Web/ProteccionCivilWebApp/BE-webApp/BE-webApp.csproj": {
+    "C:\\Users\\sergiogonzalez\\source\\repos\\SergioGonzalez24\\Proteccion-Civil-Atizapan-Desarrollo-Web\\ProteccionCivilWebApp\\BE-webApp\\BE-webApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/sergiogonzalez/Documents/GitHub/Proteccion-Civil-Atizapan-Desarrollo-Web/ProteccionCivilWebApp/BE-webApp/BE-webApp.csproj",
+        "projectUniqueName": "C:\\Users\\sergiogonzalez\\source\\repos\\SergioGonzalez24\\Proteccion-Civil-Atizapan-Desarrollo-Web\\ProteccionCivilWebApp\\BE-webApp\\BE-webApp.csproj",
         "projectName": "BE-webApp",
-        "projectPath": "/Users/sergiogonzalez/Documents/GitHub/Proteccion-Civil-Atizapan-Desarrollo-Web/ProteccionCivilWebApp/BE-webApp/BE-webApp.csproj",
-        "packagesPath": "/Users/sergiogonzalez/.nuget/packages/",
-        "outputPath": "/Users/sergiogonzalez/Documents/GitHub/Proteccion-Civil-Atizapan-Desarrollo-Web/ProteccionCivilWebApp/BE-webApp/obj/",
+        "projectPath": "C:\\Users\\sergiogonzalez\\source\\repos\\SergioGonzalez24\\Proteccion-Civil-Atizapan-Desarrollo-Web\\ProteccionCivilWebApp\\BE-webApp\\BE-webApp.csproj",
+        "packagesPath": "C:\\Users\\sergiogonzalez\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sergiogonzalez\\source\\repos\\SergioGonzalez24\\Proteccion-Civil-Atizapan-Desarrollo-Web\\ProteccionCivilWebApp\\BE-webApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/sergiogonzalez/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\sergiogonzalez\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -62,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.401/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
