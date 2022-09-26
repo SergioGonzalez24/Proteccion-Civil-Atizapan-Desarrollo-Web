@@ -1,0 +1,45 @@
+<!--AGREGAR CONTENIDO A PAGINA-->
+<div class="contenedorPrueba">
+    
+    <br>
+    
+
+<div> <!--EJEMPLO ANGULAR ASAP .NET Core-->
+    <h1 id="tableLabel">Weather forecast</h1>
+
+
+
+    <p>This component demonstrates fetching data from the server.</p>
+
+    <p *ngIf="!forecasts"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
+
+    <table *ngIf="forecasts">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Temp. (C)</th>
+                <th>Temp. (F)</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let forecast of forecasts">
+                <td>{{ forecast.date }}</td>
+                <td>{{ forecast.temperatureC }}</td>
+                <td>{{ forecast.temperatureF }}</td>
+                <td>{{ forecast.summary }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>
+
+<div style="text-align:center"> <!--EJEMPLO IMPORTAR OTRAS APIs-->
+    <h1>
+        <strong>CONTENIDO</strong>
+    </h1>
+    <br>
+    <button (click)="getData()">Fetch Data</button>
+    <h3>{{ dato }}</h3> 
+</div>
