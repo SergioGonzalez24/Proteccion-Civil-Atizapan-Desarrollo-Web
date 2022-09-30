@@ -13,6 +13,7 @@ import { PanelInfoComponent } from './pages/panel-info/panel-info.component';
 import { DownloadComponent } from './pages/download/download.component';
 import { AboutComponent } from './pages/about/about.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ReportesAdminComponent } from './pages/reportes-admin/reportes-admin.component';
 
 
 
@@ -26,7 +27,8 @@ import { LoginComponent } from './pages/login/login.component';
     PanelInfoComponent,
     DownloadComponent,
     AboutComponent,
-    LoginComponent
+    LoginComponent,
+    ReportesAdminComponent
   ],
   imports: [
     BrowserModule,
