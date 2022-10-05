@@ -1,8 +1,8 @@
-<!--AGREGAR CONTENIDO A PAGINA-->
+<!--AGREGAR CONTENIDO A PAGINA
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     
     <main class="px-3">
-        <div> <!--EJEMPLO ANGULAR ASAP .NET Core-->
+        <div> <!--EJEMPLO ANGULAR ASAP .NET Core
             <h1 id="tableLabel">Weather forecast</h1>
             <p>This component demonstrates fetching data from the server.</p>
         
@@ -28,11 +28,12 @@
             </table>
         </div>
 
-        <div style="text-align:center"> <!--EJEMPLO IMPORTAR OTRAS APIs-->
+        <div style="text-align:center"> <!--EJEMPLO IMPORTAR OTRAS APIs
             <h1>
                 <strong>CONTENIDO</strong>
             </h1>
             <br>
+            
             <button (click)="getData()">Fetch Data</button>
             <h3>{{ dato }}</h3> 
         </div>
@@ -42,13 +43,105 @@
     <br>
     <br>
 
-    <!-- FALTA POR IMPLEMENTAR
-    <h2>Clima Actual de mi Locacion</h2>
+    <h2>Clima Actual</h2>
     
     <tr *ngFor="let climaActual of climasActuales">
         <td>{{ climaActual.avg }}</td>
 
     </tr>
 
+    <br>
+    <br>
+    <br>
+
+    <h2>Clima Actual de mi Locacion</h2>
+    <ul *ngFor="let clima of climas">
+        <li>{{ clima.temperature }}</li>
+        <li>lalalalla</li>
+    </ul>
 -->
+
+<!--CONTENEDOR GENERAL-->
+<div class="container">
+
+    <!-- INICIO WIDGET DE CLIMA -->
+    <div class="contenedorWidget">
+        <div id="divWeatherMain"> 
+            <div *ngIf="WeatherData.isDay" class="weatherWidgetRow">
+                <i class="fas fa-3x fa-sun sun"></i>  
+            </div>   
+            <div *ngIf="!WeatherData.isDay" class="weatherWidgetRow">
+                <i class="fas fa-3x fa-moon moon"></i>  
+            </div>   
+            <div class="weatherWidgetRow cloudDiv">
+                <i class="fas fa-cloud fa-3x cloud"></i>
+            </div>
+            <div class="weatherWidgetRow" style="font-size: 32px;margin-top: 5px;">
+                {{ WeatherData.temp_celcius }}°
+            </div>
+            <div class="weatherWidgetRow" style="font-size: 12px;">
+                {{ WeatherData.temp_min }}° min / {{ WeatherData.temp_max }}° max
+            </div>
+            <div class="weatherWidgetRow" style="font-size: 12px;">
+                Sensacion Termica: {{ WeatherData.temp_feels_like }}°
+            </div>
+            <div class="weatherWidgetRow" style="font-size: 25px;margin-top: 10px;">
+                {{ WeatherData.name }}
+            </div>
+            <div class="weatherWidgetRow" style="font-size: 12px;">
+                Humedad: {{ WeatherData.main.humidity }}%
+            </div>
+        </div>
     </div>
+    <!-- FIN WIDGET DE CLIMA -->
+
+    <br>
+
+    <!--INICIO MULTIPLE WIDGET CHICOS-->
+    <div class="contenedoresChicos">    
+        <div class="row">
+            <!--INICIO WIDGET TERREMOTO-->
+            <div class="col text-center">
+                <div class="divAlertaMain">
+
+                    {{ TerremotoData.noun }}
+                    {{ TerremotoData.pais }}
+                    {{ TerremotoData.ciudad }}
+                    {{ TerremotoData.fecha }}
+                    {{ TerremotoData.hora }}
+                    {{ TerremotoData.magnitud }}
+        
+                </div>
+            </div>
+            <!--FIN WIDGET TERREMOTO-->
+
+            <!--INICIO WIDGET .....-->
+            <div class="col text-center">
+                <div class="divAlertaMain">
+
+                    {{ TerremotoData.noun }}
+                    {{ TerremotoData.pais }}
+                    {{ TerremotoData.ciudad }}
+                    {{ TerremotoData.fecha }}
+                    {{ TerremotoData.hora }}
+                    {{ TerremotoData.magnitud }}
+        
+                </div>
+            </div>
+            <!--FIN WIDGET .....-->
+        </div>
+    </div>
+    <!--FIN MULTIPLE WIDGET CHICOS-->
+
+    <br>
+
+    <!-- INICIO WIDGET DE ..... -->
+    <div class="contenedorWidget">
+        <div id="divWeatherMain"> 
+            <h1>OTRO WIDGET</h1>
+        </div>
+    </div>
+    <!-- FIN WIDGET DE .... -->
+
+
+</div>

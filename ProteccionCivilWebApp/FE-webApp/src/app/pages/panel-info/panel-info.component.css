@@ -1,0 +1,92 @@
+/* ----------- CONTENEDORES GENERALES -------------------- */
+
+.contenedorWidget {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.contenedoresChicos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.colContenedorChico {
+    align-items: center;
+}
+
+
+/* ---------- WIDGET DE CLIMA --------------------- */
+#divWeatherMain {
+    display: block;
+    border-radius: 20px;
+    width: 1200px;
+    height: 230px;
+    padding: auto;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(180deg, rgb(203, 212, 238) 0%, rgb(82, 143, 214) 75%, rgb(34, 91, 161) 100%);
+    color: rgb(255, 255, 255);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.weatherWidgetRow {
+    display:block;
+    margin: auto;
+    width: fit-content;
+}
+
+.sun {
+    margin-top: 10px;
+    color: rgb(255, 230, 0);
+    filter: drop-shadow( 1px 1px 10px rgb(255, 234, 0));
+}
+
+.moon {
+    margin-top: 10px;
+    color: white;
+    filter: drop-shadow( 1px 1px 10px white);
+}
+
+.cloudDiv {
+    margin-top: -40px;
+}
+
+.cloud {
+    color: rgb(255, 255, 255);
+    filter: drop-shadow( 1px 1px 5px rgba(255, 255, 255, 0.861));
+    animation-name: cloudMovement;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
+
+@keyframes cloudMovement{
+    from{margin-left: -55px;}
+    to{margin-left: 65px;}
+}
+
+/* ---------- FIN WIDGET DE CLIMA --------------------- */
+
+/* ---------- INICIO WIDGET DE ALERTAS ---------------- */
+
+.divAlertaMain {
+    
+    display: block;
+    padding: 10px;
+    border-radius: 20px;
+    width: 600px;
+    height: 400px;
+    background: rgb(145, 145, 145);
+    background: linear-gradient(180deg, rgb(219, 0, 0) 0%, rgb(179, 179, 179) 75%, rgb(152, 152, 152) 100%); 
+    color: rgb(0, 0, 0);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+} 
+
+/* ---------- FIN WIDGET DE ALERTAS --------------------- */

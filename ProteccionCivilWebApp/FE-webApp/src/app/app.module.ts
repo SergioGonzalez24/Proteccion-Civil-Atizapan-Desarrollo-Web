@@ -18,6 +18,7 @@ import { ReportesAdminComponent } from './pages/reportes-admin/reportes-admin.co
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
