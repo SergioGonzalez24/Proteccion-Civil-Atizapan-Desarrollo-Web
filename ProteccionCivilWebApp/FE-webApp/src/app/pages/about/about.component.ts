@@ -13,9 +13,7 @@ export class AboutComponent implements OnInit {
   directoriosData: any;
 
   heder = new HttpHeaders({
-    "Access-Control-Allow-Origin":  "https://jwtauth-webapi.azurewebsites.net",
-    "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-    "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
+    "Access-Control-Allow-Origin":  "https://jwtauth-webapi.azurewebsites.net"
   });
   constructor(private http: HttpClient) {
     http.get('https://jwtauth-webapi.azurewebsites.net/api/directorio/showall',
