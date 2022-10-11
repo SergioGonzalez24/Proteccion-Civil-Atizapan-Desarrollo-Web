@@ -11,3 +11,9 @@
   font-weight: normal;
   text-align: center;
 }
+
+.contenedorNavbar {
+  margin: auto;
+  width: 900px;
+  height: 100%;
+}
