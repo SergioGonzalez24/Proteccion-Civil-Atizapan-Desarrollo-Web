@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 
-
+// Componentes
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -41,6 +41,7 @@ import { ReportesAdminComponent } from './pages/reportes-admin/reportes-admin.co
       { path: 'download', component: DownloadComponent },
       { path: 'about', component: AboutComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'admin-panel', component: ReportesAdminComponent }
     ])
   ],
   providers: [],
