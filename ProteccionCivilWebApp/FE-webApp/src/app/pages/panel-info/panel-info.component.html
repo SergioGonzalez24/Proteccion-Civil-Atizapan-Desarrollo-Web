@@ -67,29 +67,42 @@
     <!-- INICIO WIDGET DE CLIMA -->
     <div class="contenedorWidget">
         <div id="divWeatherMain"> 
-            <div *ngIf="WeatherData.isDay" class="weatherWidgetRow">
-                <i class="fas fa-3x fa-sun sun"></i>  
-            </div>   
-            <div *ngIf="!WeatherData.isDay" class="weatherWidgetRow">
-                <i class="fas fa-3x fa-moon moon"></i>  
-            </div>   
-            <div class="weatherWidgetRow cloudDiv">
-                <i class="fas fa-cloud fa-3x cloud"></i>
-            </div>
-            <div class="weatherWidgetRow" style="font-size: 32px;margin-top: 5px;">
-                {{ WeatherData.temp_celcius }}°
-            </div>
-            <div class="weatherWidgetRow" style="font-size: 12px;">
-                {{ WeatherData.temp_min }}° min / {{ WeatherData.temp_max }}° max
-            </div>
-            <div class="weatherWidgetRow" style="font-size: 12px;">
-                Sensacion Termica: {{ WeatherData.temp_feels_like }}°
-            </div>
-            <div class="weatherWidgetRow" style="font-size: 25px;margin-top: 10px;">
-                {{ WeatherData.name }}
-            </div>
-            <div class="weatherWidgetRow" style="font-size: 12px;">
-                Humedad: {{ WeatherData.main.humidity }}%
+
+            <div class="row">
+                <!--Lado Izquierdo-->
+                <div class="col colWeatherWidget">
+                    <div class="weatherWidgetRow" style="font-size: 32px;margin-top: 5px;">
+                        {{ WeatherData.temp_celcius }}°
+                    </div>
+                    <div class="weatherWidgetRow" style="font-size: 12px;">
+                        {{ WeatherData.temp_min }}° min / {{ WeatherData.temp_max }}° max
+                    </div>
+                    <div class="weatherWidgetRow" style="font-size: 12px;">
+                        Sensacion Termica: {{ WeatherData.temp_feels_like }}°
+                    </div>
+                    <div class="weatherWidgetRow" style="font-size: 25px;margin-top: 10px;">
+                        {{ WeatherData.name }}
+                    </div>
+                    <div class="weatherWidgetRow" style="font-size: 12px;">
+                        Humedad: {{ WeatherData.main.humidity }}%
+                    </div>
+                </div>
+
+                <!--Fin Info lado Izquierdo-->
+                <!--Lado Derecho-->
+                <div class="col colWeatherWidgetIcon">
+                    <div *ngIf="WeatherData.isDay" class="weatherWidgetRow">
+                        <i class="fas fa-7x fa-sun sun"></i>  
+                    </div>   
+                    <div *ngIf="!WeatherData.isDay" class="weatherWidgetRow">
+                        <i class="fas fa-7x fa-moon moon"></i>  
+                    </div>   
+                    <div class="weatherWidgetRow cloudDiv">
+                        <i class="fas fa-cloud fa-7x cloud"></i>
+                    </div>
+                </div>
+                <!--Fin Info lado Derecho-->
+    
             </div>
         </div>
     </div>
@@ -102,33 +115,61 @@
         <div class="row">
             <!--INICIO WIDGET TERREMOTO-->
             <div class="col text-center">
-                <div class="divAlertaMain">
-
-                    {{ TerremotoData.noun }}
-                    {{ TerremotoData.pais }}
-                    {{ TerremotoData.ciudad }}
-                    {{ TerremotoData.fecha }}
-                    {{ TerremotoData.hora }}
-                    {{ TerremotoData.magnitud }}
-        
+                <div class="divTerremotoMain">
+                    <div class="weatherWidgetRow">
+                        <i class="fa-solid fa-7x fa-house-chimney-crack casa"></i>
+                    </div>
+                    <div class="terremotoWidgetRow" style="font-size: 28px;margin-top: 5px;">
+                        Ultimo Terremoto Registrado
+                    </div>
+                    <div class="terremotoWidgetRow" style="font-size: 20px;">
+                        Magnitud: <!-- {{ TerremotoData.magnitud }} --> 6.8
+                     </div>
+                    <div class="terremotoWidgetRow" style="font-size: 15px;">
+                        <!-- {{ TerremotoData.ciudad }} --> Michoacan
+                    </div>
+                    <div class="terremotoWidgetRow" style="font-size: 15px;">
+                        <!-- {{ TerremotoData.fecha }} --> 27/07/2022
+                    </div>
+                    <div class="terremotoWidgetRow" style="font-size: 15px;">
+                        <!-- {{ TerremotoData.hora }} --> 18:02:20
+                    </div>
+                    
                 </div>
             </div>
             <!--FIN WIDGET TERREMOTO-->
 
-            <!--INICIO WIDGET .....-->
+            <!--INICIO WIDGET AIRE-->
             <div class="col text-center">
-                <div class="divAlertaMain">
-
-                    {{ TerremotoData.noun }}
-                    {{ TerremotoData.pais }}
-                    {{ TerremotoData.ciudad }}
-                    {{ TerremotoData.fecha }}
-                    {{ TerremotoData.hora }}
-                    {{ TerremotoData.magnitud }}
-        
+                <div class="divAireMain">
+                    <div class="weatherWidgetRow">
+                        <i class="fas fa-5x fa-lungs pulmon"></i> 
+                    </div>
+                    <div class="aireWidgetRow" style="font-size: 28px;margin-top: 7px;">
+                       Calidad del Aire {{ AireData.ciudad }}
+                    </div>
+                    <div class="aireWidgetRow" style="font-size: 20px;">
+                        Indice de Calidad: {{ AireData.calidad }}
+                    </div>
+                    <div class="aireWidgetRow" style="font-size: 12px;">
+                        ____________________________________________
+                    </div>
+                    <div class="aireWidgetRow" style="font-size: 12px;">
+                        Ozono: {{ AireData.calidadO3 }}
+                    </div> 
+                    <div class="aireWidgetRow" style="font-size: 12px;">
+                       Dioxido de Nitrogeno: {{ AireData.calidadNO2 }}
+                    </div>
+                    <div class="aireWidgetRow" style="font-size: 12px;">
+                        Dioido de Azufre: {{ AireData.calidadSO2 }}
+                    </div>
+                    <div class="aireWidgetRow" style="font-size: 12px;">
+                        Monoxido de Carbono: {{ AireData.calidadCO }}
+                    </div>
+                   
                 </div>
             </div>
-            <!--FIN WIDGET .....-->
+            <!--FIN WIDGET AIRE-->
         </div>
     </div>
     <!--FIN MULTIPLE WIDGET CHICOS-->

@@ -22,15 +22,27 @@ export class PanelInfoComponent implements OnInit {
   .set('start', '1')
   .set('count','1')
   .set('type', 'earthquake')
-  .set('latitude', '19.4319')
-  .set('longitude', '-99.132896')
+  .set('latitude', '19.5734')
+  .set('longitude', '-99.24395')
   .set('radius', '1000')
   .set('units', 'kilometers')
   .set('magnitude', '3')
   .set('intensity', '1');
 
+  // Configuracion para el API de Calidad del Aire
+  aireHeaders = new HttpHeaders({
+    'x-rapidapi-host': 'air-quality.p.rapidapi.com',
+    'x-rapidapi-key': '5ae35c7978msh8ae5b33b67848eap1dd4d6jsncee7be56e0ce'
+  });
+
+  // Parametros de calidad de aire
+  configAire = new HttpParams()
+  .set('lon', '-99.132896')
+  .set('lat', '19.4319');
+
   WeatherData:any;
   TerremotoData:any;
+  AireData?:any;
 
   constructor(private http: HttpClient) { }
 
@@ -50,12 +62,19 @@ export class PanelInfoComponent implements OnInit {
     this.getTerremotoData();
     console.log(this.TerremotoData);
     
+    // Obtener datos de calidad de aire
+    this.AireData = {
+      data: []
+    }
+    this.getAireData();
+    console.log(this.AireData);
+
   }
 
   // Inicio de API de Clima
 
   getWeatherData(){
-    this.http.get('https://api.openweathermap.org/data/2.5/weather?lat=19.4319&lon=-99.132896&appid=68b800823cf8c5d32ecea64627e8c994&units=metric').subscribe((data) => {
+    this.http.get('https://api.openweathermap.org/data/2.5/weather?lat=19.5734&lon=-99.24395&appid=68b800823cf8c5d32ecea64627e8c994&units=metric').subscribe((data) => {
       this.setWeatherData(data);
     });
   }
@@ -89,6 +108,46 @@ export class PanelInfoComponent implements OnInit {
     this.TerremotoData.magnitud = this.TerremotoData.data[0].magnitude;
   }
   // Fin de API de Terremotos
+
+  // Inicio de API de Calidad del Aire
+
+  getAireData() {
+    this.http.get('https://air-quality.p.rapidapi.com/current/airquality',
+    {headers: this.aireHeaders, params: this.configAire}).subscribe((data) => {
+      this.setAireData(data);
+      let status = this.AireData.status
+      
+    });
+  }
+  setAireData(data?: any) {
+    this.AireData = data;
+    this.AireData.calidad10 = this.AireData.data[0].pm10;
+    this.AireData.calidad25 = this.AireData.data[0].pm25;
+    this.AireData.calidadO3 = this.AireData.data[0].o3;
+    this.AireData.calidadNO2 = this.AireData.data[0].no2;
+    this.AireData.calidadSO2 = this.AireData.data[0].so2;
+    this.AireData.calidadCO = this.AireData.data[0].co;
+
+    if (this.AireData.data[0].aqi <= 50 ){
+      this.AireData.calidad = "Buena";
+    }
+    else if (this.AireData.data[0].aqi <= 100 && this.AireData.data[0].aqi > 50) {
+      this.AireData.calidad = "Moderada";
+    }
+    else if (this.AireData.data[0].aqi <= 150 && this.AireData.data[0].aqi > 100) {
+      this.AireData.calidad = "Mala";
+    }
+    else if (this.AireData.data[0].aqi <= 200 && this.AireData.data[0].aqi > 150) {
+      this.AireData.calidad = "Muy mala";
+    }
+    else if (this.AireData.data[0].aqi <= 300 && this.AireData.data[0].aqi > 200) {
+      this.AireData.calidad = "Peligrosa";
+    }
+    else if (this.AireData.data[0].aqi > 300) {
+      this.AireData.calidad = "Extremadamente peligrosa";
+    }
+  }
+  // Fin de API de Calidad del Aire
 
 
 
