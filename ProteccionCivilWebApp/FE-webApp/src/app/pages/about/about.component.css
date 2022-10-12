@@ -1,0 +1,4 @@
+.mapa {
+    display: grid;
+    place-content: center;
+}
