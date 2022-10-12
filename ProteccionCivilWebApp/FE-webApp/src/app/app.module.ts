@@ -14,6 +14,7 @@ import { DownloadComponent } from './pages/download/download.component';
 import { AboutComponent } from './pages/about/about.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ReportesAdminComponent } from './pages/reportes-admin/reportes-admin.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -35,6 +36,7 @@ import { ReportesAdminComponent } from './pages/reportes-admin/reportes-admin.co
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: 'main', component: MainComponent },
       { path: 'panel-info', component: PanelInfoComponent },

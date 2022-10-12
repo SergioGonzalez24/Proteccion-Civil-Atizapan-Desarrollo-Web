@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 //IMPORTAR FORMBUILDER
-import {FormControl,FormGroup,Validators} from '@angular/forms';
+
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -13,40 +14,44 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 export class LoginComponent implements OnInit {
 
-  authHeader = new HttpHeaders({
-    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJKV1RTZXJ2aWNlQWNjZXNzVG9rZW4iLCJqdGkiOiI0ZWE4NDMyMy1mMmIzLTQ3YzktOTI5NS1jYjhlMjNmZjMyMjMiLCJpYXQiOiIxMC82LzIwMjIgMTI6NDc6NTYgQU0iLCJJZCI6IjIiLCJEaXNwbGF5TmFtZSI6IkZlcm5hbmRvIE9ydGl6IFNhbGRhw7FhIiwiRW1haWwiOiJmZXJuYW5kb29ydGlzc2FsZGFuYUBpY2xvdWQuY29tIiwiZXhwIjoxNjY5MzM3Mjc2LCJpc3MiOiJKV1RBdXRoZW50aWNhdGlvblNlcnZlciIsImF1ZCI6IkpXVFNlcnZpY2VQb3N0bWFuQ2xpZW50In0.tuuDNLhqVMZM_E0Q4N7fNiME8_fuReUTnmpTpOwr_IU'
+
+  loginHeaders = new HttpHeaders({
+    "Access-Control-Allow-Origin":  "*",
+    "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+    "Access-Control-Allow-Methods": "POST"
   });
 
 
+  form: FormGroup;
+  LoginData: any;
 
-  constructor(private http: HttpClient) {}
+
+  constructor(
+    private http: HttpClient,
+    private fb: FormBuilder ) {
+
+      this.form = this.fb.group({
+        email: [''],
+        password: ['']
+    });
+  }
 
   ngOnInit(): void {
   }
 
-  // //CREAR FORMULARIO
-  // loginForm = new FormGroup({
-  //   user: new FormControl('',[Validators.required,Validators.email]),
-  //   password: new FormControl('',[Validators.required,Validators.minLength(8)])
-  // });
+  getLogin() {
+    let data = this.form.value;
+    console.log(data);
+    this.setLoginData(data);
 
-  // //CREAR METODO PARA ENVIAR FORMULARIO
-  // onSubmit(){
-  //   console.log(this.loginForm.value);
-  //   this.http.post('https://apimunicipioatizapan.azurewebsites.net/api/admin/login', 
-  //   this.loginForm.value, {headers: this.authHeader}).subscribe((res:any) => {
-  //     console.log(res);
-  //   });
-  // }
-
-  login() {
-    this.http.post('https://apimunicipioatizapan.azurewebsites.net/api/admin/login', 
-    {headers: this.authHeader}).subscribe((res:any) => {
-      console.log(res);
-    });
   }
 
-
-
+  setLoginData(data: any) {
+    this.http.post('https://jwtauth-webapi.azurewebsites.net/api/auth/login', data,
+    { headers: this.loginHeaders }).subscribe(data => {
+      this.LoginData = data;
+      console.log(this.LoginData);
+    });
+  }
 
 }
