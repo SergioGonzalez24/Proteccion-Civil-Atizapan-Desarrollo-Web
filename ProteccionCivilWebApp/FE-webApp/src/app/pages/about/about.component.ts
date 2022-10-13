@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NavbarService } from 'src/app/components/navbar/navbar.service';
 
 @Component({
   selector: 'app-about',
@@ -17,13 +18,15 @@ export class AboutComponent implements OnInit {
     "Access-Control-Allow-Methods": "PUT, POST, GET, DELETE, OPTIONS"
   });
 
-  constructor(private http: HttpClient) {
-
-    
-  }
+  constructor(
+    private http: HttpClient,
+    public nav: NavbarService) {}
 
   ngOnInit(): void {
     this.getContactosData();
+    
+    this.nav.show();
+    this.nav.doSomethingElseUseful();
   }
 
   getContactosData() {

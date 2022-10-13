@@ -14,7 +14,7 @@ import { DownloadComponent } from './pages/download/download.component';
 import { AboutComponent } from './pages/about/about.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PanelAdminComponent } from './pages/panel-admin/panel-admin.component';
+import { PanelAdminComponent } from './consola_admin/panel-admin/panel-admin.component';
 
 
 
@@ -48,4 +48,6 @@ import { PanelAdminComponent } from './pages/panel-admin/panel-admin.component';
   providers: [],
   bootstrap: [AppComponent]
 })
+
+
 export class AppModule { }

@@ -1,0 +1,56 @@
+<header class="d-flex sticky-top flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom marginHeader">
+
+  <!--Imagen y Titulo-->
+  <a href="../main" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"> 
+    <img src="../assets/img/AtizapanLogoIcono.png" alt="Logo" width="90" height="90" >
+  <span class="fs-2">
+    <h2>Alerta Atizapan</h2>
+  </span>
+</a>
+
+<div class="col-md-3 text-end">
+  <button type="button" class="btn btn-outline-dark me-2, btn btn-warning">
+    <a class="nav-link px-3" href="/login">
+      <i class="fas fa-sign-in-alt"></i>
+      Salir de Sesion
+    </a>
+  </button>
+</div>
+
+<div class="navbar-nav">
+  <div class="nav-item text-nowrap">
+    
+  </div>
+</div>
+</header>
+
+<div class="container">
+  <table>
+      <thead>
+          <th>id</th>
+          <br>
+          <th>Evento Id</th>
+          <br>
+          <th>Prioridad</th>
+          <br>
+          <th>Verificacion</th>
+          <br>
+          <th>Estatus</th>
+      </thead>
+      <tbody>
+          <tr *ngFor="let reporte of reportes">
+              <td>{{ reporte.id }}</td>
+              <br>
+              <td> {{ reporte.evento_id }}</td>
+              <br>
+              <td>{{ reporte.prioridad }}</td>
+              <br>
+              <td>{{ reporte.verificacion }}</td>
+              <br>
+              <td>{{ reporte.estatus }}</td>
+              
+
+          </tr>
+      </tbody>
+  </table>
+</div>

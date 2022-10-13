@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { NavbarService } from 'src/app/components/navbar/navbar.service';
 
 
 @Component({
@@ -44,9 +45,15 @@ export class PanelInfoComponent implements OnInit {
   TerremotoData:any;
   AireData?:any;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    public nav: NavbarService) { }
 
   ngOnInit() {
+    // Mostrar Navbar
+    this.nav.show();
+    this.nav.doSomethingElseUseful();
+    
     // Obtener datos del clima
     this.WeatherData = {
       main : {},

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-//IMPORTAR FORMBUILDER
-
-import { Router } from '@angular/router';
+import { NavbarService } from 'src/app/components/navbar/navbar.service';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+
+//IMPORTAR FORMBUILDER Y FORMGROUP
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 
@@ -28,7 +28,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private fb: FormBuilder ) {
+    private fb: FormBuilder, 
+    public nav: NavbarService) {
 
       this.form = this.fb.group({
         email: [''],
@@ -37,6 +38,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.nav.show();
+    this.nav.doSomethingElseUseful();
   }
 
   getLogin() {
@@ -60,6 +63,7 @@ export class LoginComponent implements OnInit {
         alert("Login Successful");
         console.log("Login correcto");
         window.location.href='/panel-admin';
+        console.log(this.hideNavbar());
 
 
       }
@@ -71,6 +75,10 @@ export class LoginComponent implements OnInit {
 
     });
         
+  }
+
+  hideNavbar() {
+    return "off";
   }
 
 
