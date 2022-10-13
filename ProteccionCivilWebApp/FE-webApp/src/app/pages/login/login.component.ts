@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 
       this.form = this.fb.group({
         email: [''],
-        password: ['']
+        passsword: ['']
     });
   }
 
@@ -47,11 +47,31 @@ export class LoginComponent implements OnInit {
   }
 
   setLoginData(data: any) {
-    this.http.post('https://jwtauth-webapi.azurewebsites.net/api/auth/login', data,
+    this.http.post('https://jwtauth-webapi.azurewebsites.net/api/admin/login', data,
     { headers: this.loginHeaders }).subscribe(data => {
       this.LoginData = data;
-      console.log(this.LoginData);
+      console.log(data);
+
+      if (this.LoginData.estatus == "Usuario no existe" || this.LoginData.estatus == "Contraseña incorrecta") {
+        console.log("Login incorrecto");
+      }
+
+      else if (this.LoginData.estatus == 'Credenciales exitosas') {
+        alert("Login Successful");
+        console.log("Login correcto");
+        window.location.href='/panel-admin';
+
+
+      }
+
+      else {
+        
+        console.log("Error");
+      }
+
     });
+        
   }
+
 
 }

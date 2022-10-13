@@ -13,10 +13,8 @@ import { PanelInfoComponent } from './pages/panel-info/panel-info.component';
 import { DownloadComponent } from './pages/download/download.component';
 import { AboutComponent } from './pages/about/about.component';
 import { LoginComponent } from './pages/login/login.component';
-import { ReportesAdminComponent } from './pages/reportes-admin/reportes-admin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
+import { PanelAdminComponent } from './pages/panel-admin/panel-admin.component';
 
 
 
@@ -30,20 +28,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DownloadComponent,
     AboutComponent,
     LoginComponent,
-    ReportesAdminComponent
+    PanelAdminComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     RouterModule.forRoot([
       { path: 'main', component: MainComponent },
       { path: 'panel-info', component: PanelInfoComponent },
       { path: 'download', component: DownloadComponent },
       { path: 'about', component: AboutComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'admin-panel', component: ReportesAdminComponent }
+      { path: 'panel-admin', component: PanelAdminComponent }
     ])
   ],
   providers: [],

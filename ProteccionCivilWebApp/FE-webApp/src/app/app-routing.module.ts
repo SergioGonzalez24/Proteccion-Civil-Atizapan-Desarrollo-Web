@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'panel-info', redirectTo: 'panel-info' },
   { path: 'download', redirectTo: 'download' },
   { path: 'about', redirectTo: 'about' },
-  { path: 'login', redirectTo: 'login' }
+  { path: 'login', redirectTo: 'login' },
+  { path: 'panel-admin', redirectTo: 'panel-admin' }
 ];
 
 
