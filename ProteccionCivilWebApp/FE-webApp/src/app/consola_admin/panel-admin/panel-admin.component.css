@@ -1,5 +1,11 @@
-.marginHeader{
+.marginHeader {
     margin-left: 20px;
     margin-right: 20px;
     background-color: rgb(255, 255, 255);
+}
+
+.scrollable {
+    overflow-y: scroll;
+    height: 850px;
+    
 }

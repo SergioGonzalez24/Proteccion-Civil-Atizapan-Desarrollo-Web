@@ -18,6 +18,7 @@ import { PanelAdminComponent } from './consola_admin/panel-admin/panel-admin.com
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

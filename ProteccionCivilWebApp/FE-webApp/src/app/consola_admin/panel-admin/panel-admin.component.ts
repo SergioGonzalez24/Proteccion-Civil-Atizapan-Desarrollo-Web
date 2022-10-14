@@ -1,5 +1,5 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-panel-admin',
@@ -8,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PanelAdminComponent implements OnInit {
 
+  personalInfo: any;
+
   public reportes?: ReportesActuales[];
+
+  vinculoMapa = '';
+
+  
+
 
   reportesHeaders = new HttpHeaders({
     "Access-Control-Allow-Origin":  "*",
@@ -20,14 +27,30 @@ export class PanelAdminComponent implements OnInit {
     http.get<ReportesActuales[]>('https://jwtauth-webapi.azurewebsites.net/api/reporte/showall',
     { headers: this.reportesHeaders }).subscribe(result => {
       this.reportes = result;
-      console.log(result);
+      this.setPersonalInfo(result);
+
     });
    }
 
   ngOnInit(): void {
   }
 
+  setPersonalInfo(dataReporte: any) {
+    this.personalInfo = dataReporte;
+
+  }
+
+  print() {
+    console.log('click');
+    console.log(this.personalInfo.evento_id);
+    this.personalInfo.forEach((element: any) => {
+      console.log(element.evento_id);
+    });
+  }
+
 }
+
+
 
 interface ReportesActuales {
   id: number;
@@ -37,5 +60,4 @@ interface ReportesActuales {
   prioridad: string;
   
   verificacion: string;
-
 }

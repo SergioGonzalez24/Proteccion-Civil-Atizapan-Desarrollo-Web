@@ -1,56 +1,142 @@
+<!-- INICIO HEADER -->
 <header class="d-flex sticky-top flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom marginHeader">
 
   <!--Imagen y Titulo-->
   <a href="../main" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"> 
     <img src="../assets/img/AtizapanLogoIcono.png" alt="Logo" width="90" height="90" >
   <span class="fs-2">
-    <h2>Alerta Atizapan</h2>
+    <h2>Administrador Alerta Atizapan</h2>
   </span>
 </a>
 
 <div class="col-md-3 text-end">
   <button type="button" class="btn btn-outline-dark me-2, btn btn-warning">
     <a class="nav-link px-3" href="/login">
-      <i class="fas fa-sign-in-alt"></i>
-      Salir de Sesion
+      <i class="fa-solid fa-circle-xmark"></i>
+      Salir de Sesión
     </a>
   </button>
 </div>
-
-<div class="navbar-nav">
-  <div class="nav-item text-nowrap">
-    
-  </div>
-</div>
 </header>
 
-<div class="container">
-  <table>
-      <thead>
-          <th>id</th>
-          <br>
-          <th>Evento Id</th>
-          <br>
-          <th>Prioridad</th>
-          <br>
-          <th>Verificacion</th>
-          <br>
-          <th>Estatus</th>
-      </thead>
-      <tbody>
-          <tr *ngFor="let reporte of reportes">
-              <td>{{ reporte.id }}</td>
-              <br>
-              <td> {{ reporte.evento_id }}</td>
-              <br>
-              <td>{{ reporte.prioridad }}</td>
-              <br>
-              <td>{{ reporte.verificacion }}</td>
-              <br>
-              <td>{{ reporte.estatus }}</td>
-              
+<!-- FIN HEADER -->
 
-          </tr>
-      </tbody>
-  </table>
+<!-- INICIO BOTON ALERTA -->
+<div class="container">
+  <form>
+    <h3>Alertar Usuarios</h3>
+
+    <div class="form-floating mb-3">
+      <input formControlName="email" type="user" class="form-control" nombre="userInput" id="userInput" placeholder="Admin1234">
+      <label for="floatingInput">Notificar</label>
+    </div>
+    <button class="w-100 btn btn-md btn-danger" type="submit">¡Alertar!</button>
+  </form>
 </div>
+<!-- FIN BOTON ALERTA -->
+
+<br>
+
+<div class="container ">
+  <div class="row text-center">
+
+    <!-- INICIO COLUMNA REPORTES -->
+    <div class="col col-lg-6">
+      <!-- INICIO TITULO REPORTES -->
+      <a class="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
+        <span class="fs-5 fw-semibold">Reportes</span>
+      </a>
+      <!-- FIN TITULO REPORTES -->
+      <!-- INICIO CONTENIDO SCROLEABLE DE REPORTES -->
+      <div class="container scrollable">
+        <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white" style="width: 500px;">        
+          <div class="list-group list-group-flush border-bottom " *ngFor="let reporte of reportes" >
+
+            <!-- <button class="btn btn-outline-primary list-group-item list-group-item-action py-3 lh-sm " type="button" (click)="print()">
+              <div class="d-flex w-100 align-items-center justify-content-between">
+                <strong class="mb-1">Prioridad: {{ reporte.prioridad }}</strong>
+                <small class="text-muted">{{ reporte.estatus }}</small>
+              </div>
+              <div class="col-10 mb-1 small">Información: {{ reporte.verificacion }}</div>
+            </button> -->
+
+            <a class="list-group-item btn btn-outline-primary list-group-item-action py-3 lh-sm" (click)="print()">
+              <div class="d-flex w-100 align-items-center justify-content-between">
+                <strong class="mb-1">ID: {{ reporte.evento_id }}</strong>
+              </div>
+              <div class="d-flex w-100 align-items-center justify-content-between">
+                <strong class="mb-1">Prioridad: {{ reporte.prioridad }}</strong>
+                  <small class="text-muted">Estatus: {{ reporte.estatus }}</small>
+              </div>
+              <div class="col-10 mb-1 small">Información: {{ reporte.verificacion }}</div>
+            </a>
+
+          </div>
+        </div>
+    </div>
+    <!-- FIN CONTENIDO SCROLEABLE DE REPORTES -->
+
+    </div>
+    <!-- FIN COLUMNA REPORTES -->
+
+    <!-- INICIO COLUIMNA WIDGETS -->
+    <div class="col col-lg">
+      <!-- INICIO FILA INFORMACION -->
+      <div class="row">
+        <div class="col">
+          <!-- INICIO VERIFICACION DE REPORTE -->
+          <div class="container">
+
+            <iframe
+              width="600"
+              height="450"
+              style="border:0"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCZMk0vPiAPI9qWXg-KwxNVp9ufc_85J2U&q=Space+Needle,">
+            </iframe>
+
+
+          </div>
+          <!-- FIN VERIFICACION DE REPORTE -->
+
+          <div class="container">
+            bla bla bla bla
+            bla bla bla bla
+            bla bla bla bla
+          </div>
+
+        </div>
+      </div>
+      <!-- FIN FILA INFORMACION -->
+
+      <!-- INICIO FILA MAPA -->
+      <div class="row">
+        <div class="col">
+          <!-- INICIO VERIFICACION DE REPORTE -->
+          <div class="container">
+            <form>
+              <h5 class="align-left">Revision Reporte</h5>
+              <div class="form-floating mb-3">
+                <input formControlName="email" type="user" class="form-control" nombre="idInput" id="idInput">
+                <label for="floatingInput">Id</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input formControlName="email" type="user" class="form-control" nombre="estatusInput" id="estatusInput" >
+                <label for="floatingInput">Estatus</label>
+              </div>
+              <button class="w-100 btn btn-md btn-warning" type="submit">verificar</button>
+            </form>
+          </div>
+          <!-- FIN VERIFICACION DE REPORTE -->
+        </div>
+      </div>
+      <!-- FIN FILA MAPA -->
+
+    </div>
+    <!-- FIN COLUIMNA WIDGETS -->
+
+  </div>
+</div>
+
