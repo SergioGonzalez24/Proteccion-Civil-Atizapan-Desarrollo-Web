@@ -10,119 +10,73 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class PanelAdminComponent implements OnInit {
 
-  lat = 51.678418;
-  lng = 7.809007;
-
+  // Variables declaradas
   alerta: FormGroup;
   actualizacionEstatus: FormGroup;
-
-
-  personalInfo: any;
-
-  public elementos: Array<any> = [
-    {
-      id: null,
-      estatus: null,
-      evento_id: null,
-      prioridad_id: null,
-      verificacion: null,
-    }
-  ];
+  MapsData: any;
+  ItemSelected: any;
+  cords: any;
 
   public reportes?: ReportesActuales[];
-  public evento?: any;
-  MapsData: any;
 
+  // Configuracion para la API de REPORTES y ALERTAS
   reportesHeaders = new HttpHeaders({
     "Access-Control-Allow-Origin":  "*",
     "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-    "Access-Control-Allow-Methods": "GET"
+    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
   });
 
+  // Parametros de configuracion para el API de Maps
   mapsParams = new HttpParams()
-    .set('latlng', '19.563698,-99.296310')
+    // .set('latlng', '19.563698,-99.296310')
     .set('key', 'AIzaSyCZMk0vPiAPI9qWXg-KwxNVp9ufc_85J2U');
 
-  constructor(
-    private http: HttpClient,
-    private fb: FormBuilder) {
+  constructor(private http: HttpClient, private fb: FormBuilder) {
 
-    http.get<ReportesActuales[]>('https://jwtauth-webapi.azurewebsites.net/api/reporte/showall',
-    { headers: this.reportesHeaders }).subscribe(result => {
-      this.reportes = result;
-      this.setPersonalInfo(result);
-    });
+      http.get<ReportesActuales[]>('https://jwtauth-webapi.azurewebsites.net/api/reporte/showall',
+      { headers: this.reportesHeaders }).subscribe(result => {
+        this.reportes = result;
+        
+      });
 
-    this.alerta = this.fb.group({
-      textoAlerta: ['']
-    });
+      this.alerta = this.fb.group({
+        textoAlerta: ['']
+      });
+      this.actualizacionEstatus = this.fb.group({
+        idInput: [''],
+        estatusInput: ['']
+      });
 
-    this.actualizacionEstatus = this.fb.group({
-      idInput: [''],
-      estatusInput: ['']
-    });
-
+      this.MapsData = {
+        results : []
+      };
    }
 
   ngOnInit(): void {
-    this.MapsData = {
-      results : []
-    };
-    this.getCordenadasData();
-    console.log(this.MapsData);
+
   }
 
-  setPersonalInfo(dataReporte: any) {
-    this.personalInfo = dataReporte;
-    this.print(this.personalInfo);
+  selectItem(item: any) {
+    this.getEvento(item.evento_id);
   }
 
-  print(elemento: Array<any>) {
-    this.elementos = elemento;
-    this.personalInfo.evento_id = 1;
-
-    console.log(this.personalInfo.evento_id);
-    this.elementos.push(elemento);
-    console.log(this.elementos);
-    console.log('click');
-    console.log(this.personalInfo.evento_id);
-    this.personalInfo.forEach((element: any) => {
-      console.log(element.evento_id );
-    });
-  }
-
-
-
-  // Funciones para llamar a la API de alertas
-  getAlerta() {
-    alert("Notificación enviada");
-    let data = this.alerta.value;
-    console.log(data);
-  }
-
-  // setAlertaData(data: any) {}
-
-  // Funciones para llamar a la API de actualización de estatus
-  getActualizacionEstatus() {
-    let data = this.actualizacionEstatus.value;
-    console.log(data);
-  }
-
-  // setActualizacionEstatusData(data: any) {}
-
-
-  getEventoData() {
-    this.http.get('https://jwtauth-webapi.azurewebsites.net/api/evento/' + this.personalInfo.evento_id, 
+  getEvento(itemSlected: any) {
+    this.http.get('https://jwtauth-webapi.azurewebsites.net/api/evento/' + itemSlected, 
     { headers: this.reportesHeaders }).subscribe(data => {
-      this.evento = data;
-      console.log(data);
+      this.setEvento(data);
+    
     });
-
   }
 
-  getCordenadasData() {
-    this.http.get('https://maps.googleapis.com/maps/api/geocode/json', {params: this.mapsParams}).subscribe(data => {
-      console.log(data);
+
+  setEvento(data: any) {
+    this.ItemSelected = data;
+    this.cords = this.ItemSelected.order_location;
+    this.getCordenadasData(new String(this.cords).toString());
+  }
+
+  getCordenadasData(cords: string) {
+    this.http.get('https://maps.googleapis.com/maps/api/geocode/json?' + 'latlng=' + cords , {params: this.mapsParams}).subscribe(data => {
       this.setCordenadasData(data);
     });
   }
@@ -132,14 +86,7 @@ export class PanelAdminComponent implements OnInit {
     this.MapsData.direccion = this.MapsData.results[0].formatted_address;
     
   }
-
-
-
-
-
-
 }
-
 
 
 interface ReportesActuales {
@@ -151,3 +98,4 @@ interface ReportesActuales {
   
   verificacion: string;
 }
+

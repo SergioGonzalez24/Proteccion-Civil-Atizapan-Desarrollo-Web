@@ -1,29 +1,28 @@
 <!-- INICIO HEADER -->
 <header class="d-flex sticky-top flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom marginHeader">
 
-  <!--Imagen y Titulo-->
-  <a href="../main" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"> 
-    <img src="../assets/img/AtizapanLogoIcono.png" alt="Logo" width="90" height="90" >
-  <span class="fs-2">
-    <h2>Administrador Alerta Atizapan</h2>
-  </span>
-</a>
+    <!--Imagen y Titulo-->
+    <a href="../main" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"> 
+      <img src="../assets/img/AtizapanLogoIcono.png" alt="Logo" width="90" height="90" >
+    <span class="fs-2">
+      <h2>Administrador Alerta Atizapan</h2>
+    </span>
+  </a>
 
-<div class="col-md-3 text-end">
-  <button type="button" class="btn btn-outline-dark me-2, btn btn-warning">
-    <a class="nav-link px-3" href="/login">
-      <i class="fa-solid fa-circle-xmark"></i>
-      Salir de Sesión
-    </a>
-  </button>
-</div>
-</header>
-
+  <div class="col-md-3 text-end">
+    <button type="button" class="btn btn-outline-dark me-2, btn btn-warning">
+      <a class="nav-link px-3" href="/login">
+        <i class="fa-solid fa-circle-xmark"></i>
+        Salir de Sesión
+      </a>
+    </button>
+  </div>
+  </header>
 <!-- FIN HEADER -->
 
 <!-- INICIO BOTON ALERTA -->
 <div class="container">
-  <form [formGroup]="alerta" class="" (ngSubmit)="getAlerta()">
+  <form [formGroup]="alerta" class="" >
     <h5>Alertar Usuarios</h5>
     <div class="form-floating mb-3">
       <input formControlName="textoAlerta"  type="text" class="form-control" nombre="textoAlerta" id="textoAlerta" placeholder="Notificar">
@@ -52,7 +51,7 @@
         <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white" style="width: 400px;">        
           <div class="list-group list-group-flush border-bottom " *ngFor="let reporte of reportes">
 
-            <button class="btn btn-outline-primary list-group-item list-group-item-action py-3 lh-sm " type="submit" (click)="print(elementos)">
+            <button class="btn btn-outline-primary list-group-item list-group-item-action py-3 lh-sm " type="submit" (click)="selectItem(reporte)">
               <div class="d-flex w-100 align-items-center justify-content-between">
                 <strong class="mb-1">ID: {{ reporte.evento_id }}</strong>
               </div>
@@ -68,69 +67,71 @@
 
     <!-- FIN CONTENIDO SCROLEABLE DE REPORTES -->
 
-    </div>
-    <!-- FIN COLUMNA REPORTES -->
+  </div>
+  <!-- FIN COLUMNA REPORTES -->
 
-    <!-- INICIO COLUIMNA WIDGETS -->
-    <div class="col col-lg">
-      <!-- INICIO FILA INFORMACION -->
-      <div class="row">
-        <div class="col">
-          <!-- INICIO VERIFICACION DE REPORTE -->
-          <div class="container">
+  <!-- INICIO COLUIMNA WIDGETS -->
+  <div class="col col-lg">
+    <!-- INICIO FILA INFORMACION -->
+    <div class="row">
+      <div class="col">
+        <!-- INICIO VERIFICACION DE REPORTE -->
+        <div class="container">
 
-            <iframe
-              width="600"
-              height="450"
-              style="border:0"
-              loading="lazy"
-              allowfullscreen
-              referrerpolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCZMk0vPiAPI9qWXg-KwxNVp9ufc_85J2U&q=Space+Needle C. 1 7, Plaza Viena, 52937 Cd López Mateos, Méx., México,">
-            </iframe>
+          <iframe
+            width="600"
+            height="450"
+            style="border:0"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCZMk0vPiAPI9qWXg-KwxNVp9ufc_85J2U&q=Space+Needle C. 1 7, Plaza Viena, 52937 Cd López Mateos, Méx., México,">
+          </iframe>
 
-            <!-- <agm-map [latitude]="lat" [longitude]="lng">
-              <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-            </agm-map> -->
+          
 
-
-          </div>
-          <!-- FIN VERIFICACION DE REPORTE -->
-
-          <div class="container">
-            <strong class="mb-1"> Direccion: {{ MapsData.direccion }}</strong>
-          </div>
 
         </div>
-      </div>
-      <!-- FIN FILA INFORMACION -->
+        <!-- FIN VERIFICACION DE REPORTE -->
 
-      <!-- INICIO FILA MAPA -->
-      <div class="row">
-        <div class="col">
-          <!-- INICIO VERIFICACION DE REPORTE -->
-          <div class="container">
-            <form [formGroup]="actualizacionEstatus" class="" (ngSubmit)="getActualizacionEstatus()">
-              <h5 class="align-left">Revision Reporte</h5>
-              <div class="form-floating mb-3">
-                <input formControlName="idInput"  type="text" class="form-control" nombre="idInput" id="idInput">
-                <label for="floatingInput">Id</label>
-              </div>
-              <div class="form-floating mb-3">
-                <input formControlName="estatusInput"  type="text" class="form-control" nombre="estatusInput" id="estatusInput" >
-                <label for="floatingInput">Estatus</label>
-              </div>
-              <button class="w-100 btn btn-md btn-warning" type="submit">verificar</button>
-            </form>
-          </div>
-          <!-- FIN VERIFICACION DE REPORTE -->
+        <div class="container">
+          <strong class="mb-1"> Direccion: {{ MapsData.direccion }}</strong>
         </div>
-      </div>
-      <!-- FIN FILA MAPA -->
 
+      </div>
     </div>
-    <!-- FIN COLUIMNA WIDGETS -->
+    <!-- FIN FILA INFORMACION -->
+
+    <!-- INICIO FILA MAPA -->
+    <div class="row">
+      <div class="col">
+        <!-- INICIO VERIFICACION DE REPORTE -->
+        <div class="container">
+          <form [formGroup]="actualizacionEstatus" class="">
+            <h5 class="align-left">Revision Reporte</h5>
+            <div class="form-floating mb-3">
+              <input formControlName="idInput"  type="text" class="form-control" nombre="idInput" id="idInput">
+              <label for="floatingInput">Id</label>
+            </div>
+            
+            <div class="mb-3">
+              <select formControlName="estatusInput" class="form-select" nombre="estatusInput" id="estatusInput">
+              <option>Pendiente</option>
+              <option>En Revision</option>
+              <option>Atendida</option>
+              </select>
+            </div> 
+
+            <button class="w-100 btn btn-md btn-warning" type="submit">verificar</button>
+          </form>
+        </div>
+        <!-- FIN VERIFICACION DE REPORTE -->
+      </div>
+    </div>
+    <!-- FIN FILA MAPA -->
 
   </div>
-</div>
+  <!-- FIN COLUIMNA WIDGETS -->
+
+
 
