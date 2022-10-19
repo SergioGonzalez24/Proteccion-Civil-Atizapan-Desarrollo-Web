@@ -155,13 +155,13 @@ export class PanelAdminComponent implements OnInit {
     this.dataCambiada, { headers: this.reportesHeaders })
     .subscribe(data => { console.log(data); }
     );
+      // AutoRefrescar la pagina
     setTimeout(() => {
       window.location.reload();
-    }, 1000);
-    
+    }, 1000);    
   }
 
-  // AutoRefrescar la pagina
+
 
 
     
