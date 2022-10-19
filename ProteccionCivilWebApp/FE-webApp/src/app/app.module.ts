@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 
 
+
+
 // Componentes
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -16,6 +18,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PanelAdminComponent } from './consola_admin/panel-admin/panel-admin.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 
 
@@ -45,7 +48,8 @@ import { PanelAdminComponent } from './consola_admin/panel-admin/panel-admin.com
       { path: 'about', component: AboutComponent },
       { path: 'login', component: LoginComponent },
       { path: 'panel-admin', component: PanelAdminComponent }
-    ])
+    ]),
+    GoogleMapsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
