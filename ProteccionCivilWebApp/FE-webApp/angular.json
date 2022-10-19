@@ -15,7 +15,6 @@
           "options": {
             "outputPath": "dist/fe-web-app",
             "index": "src/index.html",
-            "push": "src/app/pages/push.php",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
