@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
+import { delay } from 'rxjs';
 
 
 
@@ -154,7 +155,9 @@ export class PanelAdminComponent implements OnInit {
     this.dataCambiada, { headers: this.reportesHeaders })
     .subscribe(data => { console.log(data); }
     );
-
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
     
   }
 

@@ -21,19 +21,30 @@
 <!-- FIN HEADER -->
 
 <!-- INICIO BOTON ALERTA -->
-<div class="container">
-  <form [formGroup]="alerta" class="" >
+<div class="container-sm">
+
+  <!-- <form [formGroup]="alerta" class="" >
     <h5>Alertar Usuarios</h5>
     <div class="form-floating mb-3">
       <input formControlName="textoAlerta"  type="text" class="form-control" nombre="textoAlerta" id="textoAlerta" placeholder="Notificar">
       <label for="floatingInput">Notificar</label>
     </div>
     <button class="w-100 btn btn-md btn-danger" type="submit">¡Alertar!</button>
-  </form>
-</div>
-<!-- FIN BOTON ALERTA -->
+  </form> -->
 
-<br>
+  <iframe 
+  src="https://helpnetx.com/andre/creanotificacion.php"
+  width="1150"
+  height="320px"
+  style="border:none;"
+  scrolling="yes"
+  frameborder="0"
+  allowtransparency="true"
+  allow="encrypted-media"
+  ></iframe>
+  
+
+</div>
 
 <div class="container ">
   <div class="row text-center">
@@ -82,6 +93,10 @@
       <div class="col">
         <!-- INICIO VERIFICACION DE REPORTE -->
         <div class="container">
+
+          <br>
+          <br>
+          <br>
 
           <google-map height="450px" width="600px" [center]="center" [zoom]="zoom">
             <!-- <map-marker *ngFor="let markerPosition of markerPositions"
