@@ -24,6 +24,7 @@
     "bootstrap": "^5.2.1",
     "firebase": "^9.12.1",
     "jest-editor-support": "*",
+    "ngx-order-pipe": "^2.2.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

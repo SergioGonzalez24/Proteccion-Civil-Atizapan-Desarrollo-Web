@@ -23,15 +23,6 @@
 <!-- INICIO BOTON ALERTA -->
 <div class="container-sm">
 
-  <!-- <form [formGroup]="alerta" class="" >
-    <h5>Alertar Usuarios</h5>
-    <div class="form-floating mb-3">
-      <input formControlName="textoAlerta"  type="text" class="form-control" nombre="textoAlerta" id="textoAlerta" placeholder="Notificar">
-      <label for="floatingInput">Notificar</label>
-    </div>
-    <button class="w-100 btn btn-md btn-danger" type="submit">¡Alertar!</button>
-  </form> -->
-
   <iframe 
   src="https://helpnetx.com/andre/creanotificacion.php"
   width="1150"
@@ -59,9 +50,11 @@
       <!-- INICIO CONTENIDO SCROLEABLE DE REPORTES -->
 
       <div class="container scrollable">
-        <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white" style="width: 400px;">        
-          <div class="list-group list-group-flush border-bottom " *ngFor="let reporte of reportes" >
+        <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white" style="width: 480px;">        
+          <div class="list-group list-group-flush border-bottom " *ngFor="let reporte of reportes | orderBy: '{{ reporte.evento_id }}': true" >
+
             <div *ngIf="reporte.estatus != 'Finalizada'">
+
               <button class="btn btn-outline-primary list-group-item list-group-item-action py-3 lh-sm " type="submit" (click)="selectItem(reporte)">
                 <div class="d-flex w-100 align-items-center justify-content-between">
               

@@ -17,7 +17,6 @@ import { delay } from 'rxjs';
 export class PanelAdminComponent implements OnInit {
 
   // Variables declaradas
-  alerta: FormGroup;
   actualizacionEstatus: FormGroup;
   MapsData: any;
   ItemSelected: any;
@@ -46,10 +45,6 @@ export class PanelAdminComponent implements OnInit {
         
       });
 
-      this.alerta = this.fb.group({
-        textoAlerta: ['']
-      });
-      
       this.actualizacionEstatus = this.fb.group({
         id: [''],
         estatus: [''],
