@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 
 import { GoogleMapsModule } from '@angular/google-maps';
-import { initializeApp } from 'firebase/app';
+
 
 
 // Componentes
@@ -51,8 +51,7 @@ import { PanelAdminComponent } from './consola_admin/panel-admin/panel-admin.com
       { path: 'login', component: LoginComponent },
       { path: 'panel-admin', component: PanelAdminComponent }
     ]),
-    GoogleMapsModule,
-    
+    GoogleMapsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

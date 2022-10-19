@@ -2,7 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import {MapInfoWindow, MapMarker} from '@angular/google-maps';
+import { MapInfoWindow, MapMarker } from '@angular/google-maps';
+
+
 
 
 
@@ -36,6 +38,7 @@ export class PanelAdminComponent implements OnInit {
   // Constructor
   constructor(private http: HttpClient, private fb: FormBuilder) {
 
+    // Mostar los reportes
       http.get<ReportesActuales[]>('https://jwtauth-webapi.azurewebsites.net/api/reporte/showall',
       { headers: this.reportesHeaders }).subscribe(result => {
         this.reportes = result;
@@ -45,6 +48,7 @@ export class PanelAdminComponent implements OnInit {
       this.alerta = this.fb.group({
         textoAlerta: ['']
       });
+      
       this.actualizacionEstatus = this.fb.group({
         id: [''],
         estatus: [''],
@@ -62,6 +66,8 @@ export class PanelAdminComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
+
 
   // Seleccion de reporte
 
@@ -143,19 +149,22 @@ export class PanelAdminComponent implements OnInit {
     let estatus = this.actualizacionEstatus.value.estatus;
     this.dataCambiada.estatus = estatus;
     let id = this.dataCambiada.id;
+
     this.http.put('https://jwtauth-webapi.azurewebsites.net/api/reporte/' + id, 
-    this.dataCambiada,
-    { headers: this.reportesHeaders }).subscribe(data => {
-      console.log(data); // print de prueba
-    }, error => { alert("El valor de Id no coincide con ningun valor") });
+    this.dataCambiada, { headers: this.reportesHeaders })
+    .subscribe(data => { console.log(data); }
+    );
+
+    
   }
 
+  // AutoRefrescar la pagina
 
 
-
-
+    
 
 }
+
 
 
 interface ReportesActuales {
