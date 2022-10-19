@@ -53,7 +53,7 @@
 
             <button class="btn btn-outline-primary list-group-item list-group-item-action py-3 lh-sm " type="submit" (click)="selectItem(reporte)">
               <div class="d-flex w-100 align-items-center justify-content-between">
-                {{ reporte.id }}
+            
                 <strong class="mb-1">ID: {{ reporte.evento_id }}</strong>
               </div>
               <div class="d-flex w-100 align-items-center justify-content-between">
@@ -116,12 +116,14 @@
         <div class="container">
           <form [formGroup]="actualizacionEstatus" class="" (ngSubmit)="cambio()">
             <h5 class="align-left">Revision Reporte</h5>
+            <br>
             <div class="form-floating mb-3">
               <input formControlName="evento_id"  type="text" class="form-control" nombre="idInput" id="evento_id">
               <label for="floatingInput">Id</label>
             </div>
             
             <div class="mb-3">
+              <label for="formFile" class="form-label">Estatus</label>
               <select formControlName="estatus" class="form-select" nombre="estatusInput" id="estatus">
               <option>Pendiente</option>
               <option>En Revision</option>

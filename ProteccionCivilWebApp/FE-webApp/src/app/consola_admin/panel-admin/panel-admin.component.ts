@@ -142,15 +142,12 @@ export class PanelAdminComponent implements OnInit {
   cambio() {
     let estatus = this.actualizacionEstatus.value.estatus;
     this.dataCambiada.estatus = estatus;
-    // console.log(this.dataCambiada);
     let id = this.dataCambiada.id;
-    console.log(id);
-
     this.http.put('https://jwtauth-webapi.azurewebsites.net/api/reporte/' + id, 
     this.dataCambiada,
     { headers: this.reportesHeaders }).subscribe(data => {
-      console.log(data);
-    });
+      console.log(data); // print de prueba
+    }, error => { alert("El valor de Id no coincide con ningun valor") });
   }
 
 
