@@ -82,6 +82,9 @@ setStatus(data: any) {
   // Seleccion de reporte
 
   selectItem(item: any) {
+
+    console.log(item);
+
     this.getItem(item.id);
     this.changeStatus(item);
     this.setStatus(item.estatus);
@@ -91,6 +94,7 @@ setStatus(data: any) {
     this.http.get('https://jwtauth-webapi.azurewebsites.net/api/evento/' + itemSlected, 
     { headers: this.reportesHeaders }).subscribe(data => {
       this.setItem(data);
+      console.log("data ", data);
 
     });
   }
@@ -107,6 +111,7 @@ setStatus(data: any) {
 
   // Funciones para obtener la informacion y direccion de las cordenadas
   getCordenadasInfo(cords: string) {
+    console.log("cord ",cords);
     this.http.get('https://maps.googleapis.com/maps/api/geocode/json?' + 'latlng=' + cords , 
     {params: this.mapsParams}).subscribe(data => {
       this.setDireccion(data);
