@@ -21,8 +21,7 @@
 <!-- FIN HEADER -->
 
 <!-- INICIO BOTON ALERTA -->
-<div class="container-sm">
-
+<div class="container">
   <iframe 
   src="https://helpnetx.com/andre/creanotificacion.php"
   width="1150"
@@ -33,8 +32,6 @@
   allowtransparency="true"
   allow="encrypted-media"
   ></iframe>
-  
-
 </div>
 
 <div class="container ">
@@ -50,8 +47,8 @@
       <!-- INICIO CONTENIDO SCROLEABLE DE REPORTES -->
 
       <div class="container scrollable">
-        <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white" style="width: 480px;">        
-          <div class="list-group list-group-flush border-bottom " *ngFor="let reporte of reportes | orderBy: '{{ reporte.evento_id }}': true" >
+        <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white" style="width: 480px;" >        
+          <div class="list-group list-group-flush border-bottom " *ngFor="let reporte of reportes | orderBy: '{{ reporte.evento_id }}': true " >
 
             <div *ngIf="reporte.estatus != 'Finalizada'">
 
@@ -112,7 +109,10 @@
                   <br>
                   Contacto: {{ ServicioData.telefono }}
                     <br>
-                    <b>Reporte num : {{ ItemSelected.identificador }}</b></p>
+                    <b>Reporte num : {{ ItemSelected.identificador }}
+                      <br>
+                      Con estatus {{ status }}
+                    </b></p>
                     <button class="btn btn-danger"
                     (click)="Finalizar()">
                     Finalizar Reporte</button>

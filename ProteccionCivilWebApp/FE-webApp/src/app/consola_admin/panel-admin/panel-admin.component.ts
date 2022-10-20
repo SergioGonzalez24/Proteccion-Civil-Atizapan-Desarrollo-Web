@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnChanges } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-panel-admin',
@@ -18,6 +19,7 @@ export class PanelAdminComponent implements OnInit {
   cords: any;
   servicio: any;
   ServicioData: any;
+  status:any;
 
   public reportes?: ReportesActuales[];
 
@@ -34,13 +36,6 @@ export class PanelAdminComponent implements OnInit {
 
   // Constructor
   constructor(private http: HttpClient, private fb: FormBuilder) {
-
-    // Mostar los reportes
-      http.get<ReportesActuales[]>('https://jwtauth-webapi.azurewebsites.net/api/reporte/showall',
-      { headers: this.reportesHeaders }).subscribe(result => {
-        this.reportes = result;
-        
-      });
 
       this.actualizacionEstatus = this.fb.group({
         id: [''],
@@ -67,9 +62,21 @@ export class PanelAdminComponent implements OnInit {
    // Fin Constructor
 
   ngOnInit(): void {
+    timer(0, 1000).subscribe(() => this.getReportes());;
+    
 
   }
 
+  getReportes() {
+    this.http.get<ReportesActuales[]>('https://jwtauth-webapi.azurewebsites.net/api/reporte/showall',
+    { headers: this.reportesHeaders }).subscribe(result => {
+      this.reportes = result;
+  });
+}
+
+setStatus(data: any) {
+    this.status = data;
+  }
 
 
   // Seleccion de reporte
@@ -77,6 +84,7 @@ export class PanelAdminComponent implements OnInit {
   selectItem(item: any) {
     this.getItem(item.id);
     this.changeStatus(item);
+    this.setStatus(item.estatus);
   }
 
   getItem(itemSlected: any) {
@@ -189,9 +197,14 @@ export class PanelAdminComponent implements OnInit {
     );
       // AutoRefrescar la pagina
     setTimeout(() => {
-      window.location.reload();
+      // window.location.reload();
+      this.getReportes();
     }, 1000);    
   }
+
+  // Automatizar el Refresh
+
+  
 }
 
 
