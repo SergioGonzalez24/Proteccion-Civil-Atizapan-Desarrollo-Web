@@ -56,15 +56,18 @@
             <div *ngIf="reporte.estatus != 'Finalizada'">
 
               <button class="btn btn-outline-primary list-group-item list-group-item-action py-3 lh-sm " type="submit" (click)="selectItem(reporte)">
+                
                 <div class="d-flex w-100 align-items-center justify-content-between">
-              
                   <strong class="mb-1">ID: {{ reporte.evento_id }}</strong>
                 </div>
+
                 <div class="d-flex w-100 align-items-center justify-content-between">
                   <strong class="mb-1">Prioridad: {{ reporte.prioridad }}</strong>
                   <small class="text-muted">{{ reporte.estatus }}</small>
                 </div>
+
                 <div class="col-10 mb-1 small">Información: {{ reporte.verificacion }}</div>
+
               </button>
 
             </div>
@@ -154,5 +157,6 @@
   </div>
   <!-- FIN COLUIMNA WIDGETS -->
 
+  
 
 

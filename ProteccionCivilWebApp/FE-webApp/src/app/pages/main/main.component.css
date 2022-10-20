@@ -50,4 +50,43 @@
       flex: 1;
     }
   }
+
+  /* TEST */
   
+  .imgShow {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.imgShow2 {
+    width: 100%;
+}
+
+.imgShow3 {
+  width: 40%;
+}
+
+.fullPhone {
+  width: 40%;
+}
+
+.notificaciones {
+  width: 100%;
+}
+
+.noticias {
+  width: 55%;
+}
+
+.clima {
+  width: 100%;
+}
+
+.directorio {
+  width: 100%;
+}
+
+.mapas {
+  width: 35%;
+}
