@@ -3,11 +3,6 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
-import { delay } from 'rxjs';
-
-
-
-
 
 @Component({
   selector: 'app-panel-admin',
@@ -21,6 +16,8 @@ export class PanelAdminComponent implements OnInit {
   MapsData: any;
   ItemSelected: any;
   cords: any;
+  servicio: any;
+  ServicioData: any;
 
   public reportes?: ReportesActuales[];
 
@@ -56,6 +53,16 @@ export class PanelAdminComponent implements OnInit {
       this.MapsData = {
         results : []
       };
+
+      this.ServicioData = {
+        results: []
+      };
+
+      this.ItemSelected= {
+        lat: null,
+        lng:null
+      };
+
    }
    // Fin Constructor
 
@@ -76,17 +83,21 @@ export class PanelAdminComponent implements OnInit {
     this.http.get('https://jwtauth-webapi.azurewebsites.net/api/evento/' + itemSlected, 
     { headers: this.reportesHeaders }).subscribe(data => {
       this.setItem(data);
-    
+
     });
   }
 
   setItem(data: any) {
     this.ItemSelected = data;
+    this.ItemSelected.identificador = this.ItemSelected.id
     this.cords = this.ItemSelected.order_location;
+    this.servicio = this.ItemSelected.directorio_id;
+    this.getServicios(this.servicio);
+
     this.getCordenadasInfo(new String(this.cords).toString());
   }
 
-  // Funcion para obtener la informacion de las cordenadas
+  // Funciones para obtener la informacion y direccion de las cordenadas
   getCordenadasInfo(cords: string) {
     this.http.get('https://maps.googleapis.com/maps/api/geocode/json?' + 'latlng=' + cords , 
     {params: this.mapsParams}).subscribe(data => {
@@ -94,8 +105,7 @@ export class PanelAdminComponent implements OnInit {
       this.addMarker(data);
     }, error => { this.setDireccion('error'); });
   }
-  
-// Funcion para obtener la direccion de las cordenadas
+
   setDireccion(data: any) {
     if(data != 'error') {
       this.MapsData = data;
@@ -105,6 +115,25 @@ export class PanelAdminComponent implements OnInit {
       this.MapsData.direccion = 'No se pudo obtener la direccion';
     }
   }
+
+  // Funcion para obtener Info del Servicio
+  getServicios(id: any) {
+    this.http.get('https://jwtauth-webapi.azurewebsites.net/api/directorio/' + id, 
+    { headers: this.reportesHeaders }).subscribe(data => {
+      // console.log(data)
+      this.setServicios(data);
+    });
+  }
+  
+  setServicios(data: any) {
+    this.ServicioData = data;
+    this.ServicioData.nombre = this.ServicioData.departamento;
+    this.ServicioData.telefono = this.ServicioData.contacto;
+  }
+
+  
+
+
 
   // GOOGLE MAPS
   @ViewChild(MapInfoWindow) infoWindow: MapInfoWindow | undefined;
@@ -126,6 +155,14 @@ export class PanelAdminComponent implements OnInit {
   }
 
   // Funcion para cambiar el estado de un reporte
+
+  Finalizar() {
+    this.actualizacionEstatus.value.estatus = 'Finalizada';
+    this.dataCambiada = this.actualizacionEstatus.value;
+    this.cambio();
+    // console.log(this.actualizacionEstatus.value);
+  }
+  
   public dataCambiada: any;
 
   changeStatus(reporte: any) {
@@ -137,7 +174,7 @@ export class PanelAdminComponent implements OnInit {
       verificacion: reporte.verificacion
     });
     this.dataCambiada = this.actualizacionEstatus.value;
-    console.log(this.actualizacionEstatus.value);
+    // console.log(this.actualizacionEstatus.value);
 
   }
 
@@ -155,12 +192,6 @@ export class PanelAdminComponent implements OnInit {
       window.location.reload();
     }, 1000);    
   }
-
-
-
-
-    
-
 }
 
 

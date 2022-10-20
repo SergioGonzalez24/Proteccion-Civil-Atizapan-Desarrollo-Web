@@ -105,7 +105,18 @@
               <map-info-window>
                 <div class="info-window">
                   <h3>Solicitud de Emergencia</h3>
-                  <p>Se ha reportado una emergencia en {{ MapsData.direccion }}.</p>
+                  <p>Se ha reportado una emergencia en {{ MapsData.direccion }}. {{ MapsData.descripcion }}
+                  </p>
+                  <p>
+                  Tipo de emergencia: {{ ServicioData.nombre }}
+                  <br>
+                  Contacto: {{ ServicioData.telefono }}
+                    <br>
+                    <b>Reporte num : {{ ItemSelected.identificador }}</b></p>
+                    <button class="btn btn-danger"
+                    (click)="Finalizar()">
+                    Finalizar Reporte</button>
+
                 </div>
               </map-info-window>
 
@@ -118,6 +129,10 @@
 
         <div class="container">
           <strong class="mb-1"> Direccion: {{ MapsData.direccion }}</strong>
+          <br>
+          <strong class="mb-1">Servicio: {{ ServicioData.nombre }} </strong>
+          <br>
+          <small class="text-muted"> Contacto: {{ ServicioData.telefono }}</small>
         </div>
         <br>
       </div>
@@ -142,6 +157,8 @@
               <select formControlName="estatus" class="form-select" nombre="estatusInput" id="estatus">
               <option>Pendiente</option>
               <option>En Revision</option>
+              <option>Asignado</option>
+              <option>En Proceso</option>
               <option>Finalizada</option>
               </select>
             </div> 
